@@ -36,6 +36,12 @@
 
       var visits = visitData.ToList();
 
+      // skip if importing contacts
+      if (!visits.Any())
+      {
+        return;
+      }
+
       visits.Sort((x, y) => DateTime.Compare(y.StartDateTime, x.StartDateTime));
 
       var interaction = visits.FirstOrDefault();
